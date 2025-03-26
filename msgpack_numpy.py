@@ -24,10 +24,7 @@ if sys.version_info >= (3, 0):
         if obj.dtype == 'O':
             return obj.dumps()
         else:
-            if sys.platform == 'darwin':
-                return obj.tobytes()
-            else:
-                return obj.data if obj.flags['C_CONTIGUOUS'] else obj.tobytes()
+            return obj.tobytes()
 
     num_to_bytes = lambda obj: obj.data
 
